@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage[]{algorithm2e}
+\usepackage{amssymb}
+\pagestyle{empty}
+\author{Chris Camano: ccamano@sfsu.edu}
+\title{CSC510 Lecture 1 }
+\date
+
+\topmargin -0.6in
+\headsep 0.40in
+\oddsidemargin 0.0in
+\textheight 9.0in
+\textwidth 6.5in
+
+\newcommand{\econst}{\mathrm{e}}
+\newcommand{\diff}{\mathrm{d}}
+\newcommand{\dwrt}[1]{\frac{\diff}{\diff #1}}
+%%%%%%Macros for 425%%%%%%%%%%%%%%%%%%%
+\newcommand{\q}{\quad}
+\newcommand{\tab}{\\\\}
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\sect}[1]{\section*{#1}}
+
+%%%%%%Vector Spaces%%%%%%%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\rtwo}{\mathbb{R}^2}
+\newcommand{\mxn}{{mxn}}
+
+%%%%%%Sets and common phrases%%%%%%%%%
+\newcommand{\Axb}{\textbf{Ax=b} }
+\newcommand{\Axz}{\textbf{Ax=0} }
+\newcommand{\dim}{\text{dim}}
+\newcommand{\lc}{linear combination }
+\newcommand{\let}{\text{Let }}
+\newcommand{\tf}{\therefore}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\everymath={\displaystyle}
+
+
+\begin{document}
+\maketitle
+\textbf{Algorithm definition and Algorithm Analysis philosophy}\\
+Algorithms are generally described using pseudocode as an abstract expression of a procedure. It is independent from any programming language and follows the convention of mathematics instead. \\
+We will focus on proving that a given algorithm always produces the right answer and we will also describe its worst case time complexity.\\\\
+Formally showing correctness of recursive algorithms uses proof by induction.
+\\\\
+\textbf{Time complexity of common algorithms}\\
+Merge sort: $O(nlog(n))$\\
+Insertion sor: $O(n^2)$
+\textbf{Recursion/ Divide and conquer}\\
+Many problems have a recurisve structure. Big solution from smaller solutions.
+\textbf{Backtracking }\\
+An incremental brute force approach in which a recursive algorithm is run until a solution criteria is satisfied.\\
+\textbf{Dynamic Programming}
+\[
+  F_1=1 \quad F_2=1
+\]
+\[
+  F_n=F_{n-1}+F_{n-2} \quad \forall n \in \mathbb{Z}, n>2
+\]
+  Fib(n\\
+   \ if(n=1 or n=2):\\
+   \quad\quad return 1;\\
+   \quad else : \\
+   \quadreturn Fib(n-1)+Fib(n-2)\\
+This algorithm is very inefficient because similar components are being recomputed. \\
+instead of computing from the top to bottom it actually can be much more efficient to save intermediate solutions to avoid redundant work. \\
+DpFib(n)\\
+init F[0,...,max(1,n)]\\
+F[0]:=0\\
+F[1]:=1\\
+for i=2,...,n\\
+F[i]:=F[i-1+F[i-2]\\
+return F[n]\\\\
+\sect{Lecture 1}\\
+\textbf{Big O notation}\\
+Big O notation allows us to isolate bottlenecks in algorithms independent of a implementation. It also ignores descrepancies between systems and captures long term behavior. \\\\
+Big O notation is asymptotic notation, it has to do with a formal definition centered on the concept of a limit. \\
+O(f(n)): class of functions whose order is at most f(n).\\
+A big O classification is a family of function.
+\[
+  f(n) \in O(g(n))
+\]
+f(n) is an element of the set of functions bounded by g(n). In computer science this set inclusion operator is defined as equivilancy. \\
+Let T(n) be the # of operations when running an algorithm on size n input.
+\[
+   \exists_{C,K \in \mathbb{R}}, K>0 : \quad T(n)\leq Cf(n)\quad \forall_n>K
+\]
+\end{document}

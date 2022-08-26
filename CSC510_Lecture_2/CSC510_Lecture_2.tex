@@ -62,5 +62,95 @@
 \maketitle
 
 
-\sect{Opening Comments}
+\sect{Big O notation II}\\
+As a refresher K is the point in which the function in question dominates another function for $n>K$.\\
+Generally when solving problems of this nature it is a good place to start by identifying the constant C on the other side of the inequality\\
+This can be done by selecting the next integer after the coefficient on the term on the left hand side with the highest degree. C can be decremented to a non integer value as long as that value is greater than the largest coefficient.
+\[
+f(x)=  a_kx^k+a_{k-1}x^{k-1}+\cdots+a_1x^1+a_0
+\]
+so long as $C>a_k$ the function will dominate for some K.\\\
+f(x) is O(g(x)) $\iff$$\exists C,K\in \R^+:$
+\[
+  |f(n)|\leq C|g(n)|\quad \forall n\geq K
+\]
+Big O notation functions purely as an upper bound for lower bounds we consider Big Omega notation and if a function is bounded by some other function above and below we then turn our attention to big Theta. \\
+\defn Change of base formula:
+\[
+  log_a(n)=\frac{log_x(n)}{log_x(a)}
+\]
+\prop Modifying the definition of Big O notation:
+\[
+f(x)=  a_kx^k+a_{k-1}x^{k-1}+\cdots+a_1x^1+a_0
+\]
+so long as $C>a_k$ the function will dominate for some K.\\\
+f(x) is O(g(x)) $\iff$$\exists C,K\in \R^+:$
+\[
+  |f(n)|\leq C|g(n)|\quad \forall n\geq K
+\]
+\[
+  \lim_{n\arr\infty}\frac{|f(n)|}{|g(n)|}\leq C\quad \forall n\geq K
+\]
+Example:
+\[
+  \lim_{n\arr\infty}\frac{|n^{100}|}{|e^n|}\leq C\quad \forall n\geq K
+\]
+\[
+  \lim_{n\arr\infty}\frac{|100n^{99}|}{|e^n|}\leq C\quad \forall n\geq K
+\]
+\[
+  \lim_{n\arr\infty}\frac{100!}{|e^n|}\leq C\quad \forall n\geq K
+\]
+\[
+0\leq C\quad \forall n\geq K
+\]\\\\
+Given a polynomial function. First eliminate negative terms by expressing an inequality in which the negative terms have been removed.
+\[
+  f(x)\leq f(x)^+ ,\quad f(x) \in \mathbb{P}
+\]
+Next, adjust all of the polynomial terms to share the highest degree and sum the terms to compute a leading coefficient. In general the sum of the coefficients is a good choice of C for a big O classification. This is true for all values greater than one due to the behavior of exponentating rational numbers.
+\\\\
+constant$<$logathrithmic$<$polynomial$<$exponential\\
+if(f(n)=O(g(n))) and h(n)$>$0 then\\ f(n)h(n)=O(g(n)h(n))\\
+\defn Big O properties\\
+$$O(f(n))+O(g(n))=O(f(n)+g(n))$$\\
+$$O(f(n))O(g(n))=O(f(n)g(n))$$\\
+$$O(f(n))+g(n))=O(max(f(n),g(n))$$\\
+\prop Example:
+Given a term such as
+\[
+  f(n)=20(n^2+n^2log_4n)(4n+3)+(17log_3n+19)(n^3+2)
+\]
+First take the fastest  function thats increasing
+\[
+  f(n)=O(n^2\log(n))O(n)+O(log(n))O(n^3)
+\]
+\[
+  f(n)=O(n^3\log(n))+O(n^3log(n))
+\]
+\[
+  f(n)=O(n^3\log(n))
+\]
+\defn Big Omega: \\
+f(x) is $\Omega$(g(x)) $\iff$$\exists C,K\in \R^+:$
+\[
+  |f(n)|\geq C|g(n)|\quad \forall n\geq K
+\]
+\defn Big Theta
+f(x) is $\Theta$(g(x)) $\iff$$\exists C,K\in \R^+:$
+\[
+C|g(n)|\leq  |f(n)|\leq C|g(n)|\quad \forall n\geq K
+\]
+\defn Little o:
+\[
+  |f(n)| < C|g(n)|\quad \forall n\geq K
+\]
+\defn Little $\omega$:
+\[
+  |f(n)| > C|g(n)|\quad \forall n\geq K
+\]
+\sect{Pseduocode and Analyzing Runtime}\\
+Do not submit any code in this course, use Pseduocode with natural language semantics. \\
+\defn Analyzing iterative algorithms. \\
+Giving a big O estimate for the return value cout in the function: If loops are not nested sum them if they are multiply them
 \end{document}

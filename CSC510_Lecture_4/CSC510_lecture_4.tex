@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\pagestyle{empty}
+\author{Chris Camano: ccamano@sfsu.edu}
+\title{MATH 335  Lecture 2 }
+\date
+
+\topmargin -0.6in
+\headsep 0.40in
+\oddsidemargin 0.0in
+\textheight 9.0in
+\textwidth 6.5in
+\vfuzz2pt
+\hfuzz2pt
+
+%%%%Short cuts and formatting%%%%%%%%%%
+\newcommand{\q}{\quad}
+\newcommand{\tab}{\\\\}
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\sect}[1]{\section*{#1}}
+
+%%%%%%Vector Spaces%%%%%%%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\rtwo}{\mathbb{R}^2}
+\newcommand{\mxn}{{m\times n}}
+
+%%%%%%Sets and common phrases%%%%%%%%%
+\newcommand{\Axb}{\textbf{Ax=b} }
+\newcommand{\Axz}{\textbf{Ax=0} }
+\newcommand{\dim}{\text{dim}}
+\newcommand{\lc}{linear combination }
+\newcommand{\let}{\text{Let }}
+\newcommand{\tf}{\therefore}
+%%%%%%%%%Analysis%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\arr}{\rightarrow}
+\newcommand{\xlim}{\lim_{x\rightarrow \infty}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\i}{\text{ if }}
+\newcommand{\and}{\text{ and }}
+%%%%%% Theorem formatting%%%%%%%%%%%
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+\everymath={\displaystyle}
+
+
+\begin{document}
+\maketitle
+Induction recap: base case(s). \\
+\textbf{Weak induction} show true for n=k then prove true for n=k+1\\
+\textbf{Strong induction} show true for $n\leq k$ and prove true for n=k+1\\\\
+\sect{Recursion and divide and conquer}\\
+\defn Reduction: Converting a problem x into a problem Y where we already have a " black box" algorithm for Y\\\\
+Recursion is a reduction to a smaller insatnce of the same problem. \\\\
+Proving towers of hanoi recursive function via induction: \\\\
+The function Hanoi runs correctly on n disks forall n $\geq$ 1. Base case is n=1, then show n+1\\ Inductive step: Assume all recursive calls are correct.
+
+
+\[
+  F_e=\frac{k|q_1||q_2|}{r^2}
+\]
+\[
+  F_e=\frac{k|q_1||q_2|}{(2r)^2}=\frac{k|q_1||q_2|}{4r^2}=\frac{1}{4}\left[\frac{k|q_1||q_2|}{r^2}\left]=\frac{1}{4}F_e
+\]
+\end{document}

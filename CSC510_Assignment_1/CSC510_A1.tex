@@ -1,0 +1,121 @@
+\documentclass[11pt]{article}
+\usepackage{algorithm,algpseudocode}
+\usepackage{amssymb,latexsym,amsmath,amsthm,graphicx, cite}
+ \author{Chris Camano: ccamano@sfsu.edu}
+ \title{CSC510  Homework 1 }
+ \date
+
+\usepackage{mathptmx}
+\usepackage{pgfplots}
+\usetikzlibrary{positioning}
+\usepackage{multirow}
+\usepackage{float}
+\restylefloat{table}
+\hoffset=0in
+\voffset=-.3in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in
+\textwidth=6.5in
+\textheight=8.8in
+\marginparwidth 0pt
+\marginparsep 10pt
+\headsep 10pt
+
+\theoremstyle{definition}  % Heading is bold, text is roman
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{proposition}{Proposition}
+
+
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\lcm}{\mathrm{lcm}}
+
+
+
+\setlength{\parskip}{0cm}
+%\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
+\bibliographystyle{amsplain}
+
+%\input{../header}
+
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+  \item
+  \begin{enumerate}
+    \item  Using the formal definition of big-O notation, show that $$7n^4-21n^3-12n^2+13n+91=\mathcal{O}(n^4)$$What are the values of C and K you used?\\\\
+    \begin{align*}
+      &7n^4-21n^3-12n^2+13n+91\leq 7n^4+91+13n\\
+      &7n^4-21n^3-12n^2+13n+91\leq 7n^4+91n^4+13n^4\\
+      &7n^4-21n^3-12n^2+13n+91\leq 111n^4\\
+    \end{align*}
+    Let C=111. Upon examination of the behavior of these two functions it appears that f(n) is $\mathcal{O}(g(n))$ $ \forall n\geq k=1$ due the polynomial nature of the function \\\\
+    \item  Using the various identities regarding big-O notation, give a big-O estimate O(f(n))
+for the function:
+\[
+  (3+log_7(n))^2(17n^2+log_8(n))+29(40n+28)(25nlog_3(n)+6n^2ln(n))
+\]
+\newcommand{\bO}{\mathbb{O}}
+  \begin{align*}
+    &(3+log_7(n))^2(17n^2+log_8(n))+29(40n+28)(25nlog_3(n)+6n^2ln(n))\\
+    &\bO(log^2(n))\bO(n^2)+\bO(n)\bO(n^2log(n))\\
+    &\bO(n^2log^2(n))+\bO(n^3log(n))\\
+    &\bO(n^2log^2(n)+n^3log(n))\\
+    &\bO(n^3log(n))
+  \end{align*}
+  \end{enumerate}
+  \item  Convert the following Java method into pseudocode :
+  \begin{algorithm}
+    \caption{SelectionSort(A[1,...,n]) }
+    \label{alg:algorithm_sum}
+    \begin{algorithmic}[1]
+      \For{i=1,...,n-1}
+          \State {minIndex:=i}
+          \For{ j=i+1,..,n}
+           \If {A[j]$<$A[minIndex]}
+          \State{ minIndex:=j}
+           \EndIf
+          \EndFor
+          \State swap A[minIndex], A[i]
+        \EndFor
+
+    \end{algorithmic}
+  \end{algorithm}
+  Let me know if in the future you would like me to omit the end fors and end ifs here, they are auto populated by the latex environment I am using but I can toggle them going forward if that is your preference. thanks \\\\
+  \item  Give big-O estimates for the return value count in each of these two functions:
+  \newcommand{\bO}{\mathbb{O}}
+  \begin{enumerate}
+    \item For the first function the big O estimate is $\bO(n^3)$ since there are three nested for loops acting as a bottle neck over the additional for loop at the end of the routine.
+    \item For the second function the big O estimate is $\bO(mn^3)$ since a function with time complexity $\bO(n^3)$ is wrapped in another loop of complexity $\bO(m)$ and we have the property that:
+    \[
+      \bO(f(n))\bO(g(n))=\bO(f(n)g(n))
+    \]
+  \end{enumerate}
+  \item  Prove,
+  using induction, that for every n ≥ 1, our algorithm produces a list of instructions
+  that:
+  \begin{enumerate}
+    \item starts with moving disc 1,
+    \item alternates between moving disc some other disc and moving disc 1, and
+    \item ends with moving disc 1.
+  \end{enumerate}
+Let our inductive hypothesis be the case that all three of these statements are true. \\
+\textbf{Base case: n=1}\\
+In the event of the base case we simply move one disc from the start to the finish and all three conditions are satisified as there is no alternate disk to move anyways.\\
+\textbf{Inductive step:}
+For any given n The process of calling H(n) can be seen as three seperate parts. The first part is the recursive call which by the inductive hypothesis starts and ends at moving disc 1. The second part is moving the arbitrary disc for a given n. Finally the third step is the other recurisve call which again by the inductive hypothesis starts and ends with movign disc one. \\\\
+Due to the fact that each subroutine ends and starts with one, whenever it is the case that we move another disc this implies that we first move disc 1 and do so after as all steps except for the base case of n=0 can be viewed through this perspective. Thus by the process of mathematical induction we have proven the implication.
+\end{enumerate}
+\end{document}

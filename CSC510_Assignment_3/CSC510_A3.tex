@@ -1,0 +1,169 @@
+\documentclass[11pt]{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amssymb,latexsym,amsmath,amsthm,graphicx, cite}
+ \author{Chris Camano: ccamano@sfsu.edu}
+ \title{CSC510  Homework 3 }
+ \date
+
+\usepackage{mathptmx}
+\usepackage{pgfplots}
+\usetikzlibrary{positioning}
+\usepackage{multirow}
+\usepackage{float}
+\restylefloat{table}
+\hoffset=0in
+\voffset=-.3in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in
+\textwidth=6.5in
+\textheight=8.8in
+\marginparwidth 0pt
+\marginparsep 10pt
+\headsep 10pt
+
+\theoremstyle{definition}  % Heading is bold, text is roman
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{proposition}{Proposition}
+
+
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\lcm}{\mathrm{lcm}}
+
+
+\usepackage[many]{tcolorbox}
+\usepackage{lipsum}
+\tcbset{breakable}
+
+\newcommand{\bigline}{\\\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\}
+\newcommand{\block}[2]{\begin{tcolorbox}[title={#1}]{#2}\end{tcolorbox}}
+\setlength{\parskip}{0cm}
+%\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
+\bibliographystyle{amsplain}
+
+%\input{../header}
+
+\begin{document}
+\maketitle
+\block{Question 1}{
+1. Rocky Balboa is running up a staircase with $n \geq 1$ steps and can jump up 1,2 , or 3 steps at a time. \\\\
+For example, if the staircase had $n=5$ steps, two possible ways (but not the only two ways) of running up the stairs could be five 1-step jumps, or a 3-step jump followed by a 2-step jump.\\\\ Describe a backtracking algorithm for counting the number ways Rocky can run up $n$ stairs.}
+
+\begin{algorithm}
+    \caption{\operatorname{ROCKY}(n)}
+    \label{alg:algorithm_sum}
+    \begin{algorithmic}[1]
+      \If { n=1}
+
+        \Return {1}
+      \EndIf
+
+      \If {n=2}
+
+        \Return {2}
+      \EndIf
+
+      \If {n=3}
+
+        \Return {4}
+      \Else
+
+      \Return{ \operatorname{ROCKY}(n-1)+\operatorname{ROCKY}(n-2)+\operatorname{ROCKY}(n-3)}
+
+    \end{algorithmic}
+  \end{algorithm}
+\textbf{Give a verbal justification for why your recurrence works. (Hint: just because the function has to work for $n \geq 1$ doesn't mean it can't work for other values, too)}\\\\
+This recurrence works by first considering the smallest possible base cases. After incorperating these into our backtracking algorithm all sub problems can be recursivley reconsidered through the recursive call after the base cases at the end of the algorithm.
+}
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\block{Question 2}{
+2. Now, write down a dynamic programming algorithm for computing the same function as in the previous question. }
+\begin{algorithm}
+    \caption{ROCKYDP(n) }
+    \label{alg:algorithm_sum}
+    \begin{algorithmic}[1]
+      \State{Initialize S[1,...,n]}
+      \State{S[1]=1}
+      \State{S[2]=2}
+      \State{S[3]=4}
+      \For{ i=4,..,n}
+        \State{S[i]=S[i-1]+S[i-2]+S[i-3]}
+      \EndFor
+
+      \algorithmicreturn{ S[n]}
+    \end{algorithmic}
+  \end{algorithm}
+  $\textbf{NOTE:}$ For some reason my algorithm environment is appending a $=0$ to the end of my return statement , it is not supposed to be there please ignore this\\\\
+
+What's the runtime of your algorithm? The runtime of this algorithm is $$\mathcal{O}(n-3)=\mathcal{O}(n)$$ since we are iterating over the given value n a single time.
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\block{Question 3}{
+3. Suppose you're at the supermarket, looking to buy exactly $n$ cupcakes for an upcoming party, where $n \geq 1$. At the supermarket, the only cupcakes you can buy come in boxes of 4,6 , and 9 . \\\\For example, if $n=14$, you could buy two boxes of 4 , and one box of 6 cupcakes to get exactly your desired total. However, if $n=11$, you would have to buy extra cupcakes. \\\\Describe a backtracking algorithm for determining whether you can buy exactly $n$ cupcakes.}
+
+\begin{algorithm}
+    \caption{CUPCAKE $(n)$ }
+    \label{alg:algorithm_sum}
+    \begin{algorithmic}[1]
+      \If{n=0}
+
+      \Return {True}
+
+      \EndIf
+      \If{$n<0$}
+
+      \Return {False}
+
+      \Else
+
+        \Return{ CUPCAKE(n-9) or CUPCAKE(n-6) or CUPCAKE(n-4)}
+
+    \end{algorithmic}
+  \end{algorithm}\\\\
+\textbf{Give a verbal justification for why your recurrence works.}\\
+For this algorithm we really need to just implement modular behavior over each sub problem. The base cases in a boolean context are if we can get the remainder down to zero which means that we can form some linear combination of boxes equating to the desired sum or if we reach below zero indicating that we can not evenly divide the sum into multiples of the given box sizes.
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\block{Question 4}{
+4. The SFSU Robotics Club is holding a competition for designing robots that can navigate a maze. Suppose that the maze is laid out on an $m \times n$ grid with $m$ rows and $n$ columns, and you're given a boolean array $W[1, \ldots, m][1, \ldots, n]$, where $W[i][j]=$ TRUE if there is a wall at coordinate $(i, j)$, and FALSE otherwise. The robots can only move down or right one cell at a time and cannot run into any walls. An example path in a grid where $m=6, n=7$ is the following:\\\\
+Describe a backtracking algorithm for finding the number of ways for the robot to navigate from the top-left cell (coordinate $(1,1)$ ) to some other cell (coordinate $(i, j)$, where $1 \leq i \leq m$ and $1 \leq j \leq n$ ) of the maze. }
+\begin{algorithm}
+    \caption{MAZEROBOT $(W[1, \ldots, m][1, \ldots, n], i, j)$  }
+    \label{alg:algorithm_sum}
+    \begin{algorithmic}[1]
+      \If {W[1][1]=TRUE}%case of starting on obstacle
+      \State{return 0}
+      \EndIf
+      \If {W[i][j]=TRUE }%case of obstacle on goal
+      \State{return 0}
+      \EndIf
+      \If{$i<1$ or $j<1$}
+      \State{return 0}
+      \EndIf
+      \If {i=1 and j=1}% we made it to the start
+      \State{return 1}
+      \Else{
+
+        \Return {MAZEROBOT(W,i-1,j)+MAZEROBOT(W,i,j-1)}
+}
+    \end{algorithmic}
+  \end{algorithm}
+\textbf{Give a verbal justification for why your recurrence works. (Hint: you can think of row or column 0 as a bunch of walls)}\\
+The algorithm above works in the following way: We first consider the base cases for the problem description the first of which is the event in which the starting point is in fact an obstacle. In this event there are 0 ways to move anywhere else. The second base case is the event where the goal in question is in fact an obstacle, in this event there are also 0 ways to reach the goal. The third base case is the event when our indices become less than one  which may occur on recursive calls during the algorithm. Finally the last base case is the event where wer are considering the number of ways to move from the starting point to the starting point which is always 1 \\\
+We now proceed to traversing the grid. Since the robot has limited movement and can only move down or right one cell at a time this means that for any given row the robot must be moving from the left to get there and for any given column the robot must be moving from above to get there. Since we can only arrive to a specific location on the grid from the left or from above for any given point(i,j) the number of ways to arrive to that location is the sum of the tile above and the tile to the left of it.\\\\
+This is our recurrence relation
+
+\end{document}

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.8.21)  2 NOV 2022 12:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.8.21)  4 NOV 2022 15:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**CSC510_A3.tex
-(./CSC510_A3.tex
+**CSC510_A4.tex
+(./CSC510_A4.tex
 LaTeX2e <2021-06-01> patch level 1
 L3 programming layer <2021-07-12>
 (c:/texlive/2021/texmf-dist/tex/latex/base/article.cls
@@ -179,7 +179,7 @@ LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
 Runaway argument?
-./CSC510_A3.tex:8: Paragraph ended before \date  was complete.
+./CSC510_A4.tex:8: Paragraph ended before \date  was complete.
 <to be read again> 
                    \par 
 l.8 
@@ -721,7 +721,10 @@ LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 5
 
 (c:/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-) (./CSC510_A3.aux
+) (./CSC510_A4.aux
+
+LaTeX Warning: Label `alg:algorithm_sum' multiply defined.
+
 
 LaTeX Warning: Label `alg:algorithm_sum' multiply defined.
 
@@ -732,7 +735,7 @@ LaTeX Warning: Label `alg:algorithm_sum' multiply defined.
 LaTeX Warning: Label `alg:algorithm_sum' multiply defined.
 
 )
-\openout1 = `CSC510_A3.aux'.
+\openout1 = `CSC510_A4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
 LaTeX Font Info:    ... okay on input line 58.
@@ -811,368 +814,493 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 59.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 59.
+
+./CSC510_A4.tex:68: Illegal parameter number in definition of \kvtcb@title.
+<to be read again> 
+                   1
+l.68 }
+      
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./CSC510_A4.tex:68: You can't use `macro parameter character #' in horizontal m
+ode.
+\kvtcb@title ->Question ##
+                          1
+l.68 }
+      
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 62.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 62.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 62.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--62
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--62
-
- []
-
-./CSC510_A3.tex:65: Missing $ inserted.
-<inserted text> 
-                $
-l.65     \caption{\operatorname{ROCKY}(n)}
-                                          
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./CSC510_A3.tex:65: Missing $ inserted.
-<inserted text> 
-                $
-l.65     \caption{\operatorname{ROCKY}(n)}
-                                          
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./CSC510_A3.tex:83: Missing $ inserted.
-<inserted text> 
-                $
-l.83       \Return{ \operatorname{ROCKY}
-                                        (n-1)+\operatorname{ROCKY}(n-2)+\ope...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./CSC510_A3.tex:83: Extra }, or forgotten $.
-l.83 ...ame{ROCKY}(n-2)+\operatorname{ROCKY}(n-3)}
-                                                  
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./CSC510_A3.tex:84: Missing $ inserted.
-<inserted text> 
-                $
-l.84 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./CSC510_A3.tex:84: Missing } inserted.
-<inserted text> 
-                }
-l.84 
-     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-./CSC510_A3.tex:85: Package algorithmicx Error: Some blocks are not closed!!!.
+./CSC510_A4.tex:87: Package algorithmicx Error: Some blocks are not closed!!!.
 
 See the algorithmicx package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.85     \end{algorithmic}
+l.87     \end{algorithmic}
                           
 This error message was generated by an \errmessage
 command, so I can't give any explicit help.
 Pretend that you're Hercule Poirot: Examine all clues,
 and deduce the truth by order and method.
 
-./CSC510_A3.tex:89: Too many }'s.
-l.89 }
-      
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
+./CSC510_A4.tex:94: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.94       \State
+                 {Init C=[1,...,max(n,9)]}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+./CSC510_A4.tex:94: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.94       \State
+                 {Init C=[1,...,max(n,9)]}
+I'm ignoring this, since I wasn't doing a \csname.
+
+./CSC510_A4.tex:95: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.95       \State
+                 {C[1]=False}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+./CSC510_A4.tex:95: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.95       \State
+                 {C[1]=False}
+I'm ignoring this, since I wasn't doing a \csname.
+
+./CSC510_A4.tex:96: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.96       \State
+                 {C[2]=False}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+./CSC510_A4.tex:96: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.96       \State
+                 {C[2]=False}
+I'm ignoring this, since I wasn't doing a \csname.
+
+./CSC510_A4.tex:97: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.97       \State
+                 {C[3]=False}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+./CSC510_A4.tex:97: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.97       \State
+                 {C[3]=False}
+I'm ignoring this, since I wasn't doing a \csname.
+
+./CSC510_A4.tex:98: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.98       \State
+                 {C[4]=True}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+./CSC510_A4.tex:98: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.98       \State
+                 {C[4]=True}
+I'm ignoring this, since I wasn't doing a \csname.
+
+./CSC510_A4.tex:99: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.99       \State
+                 {C[5]=False}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+./CSC510_A4.tex:99: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.99       \State
+                 {C[5]=False}
+I'm ignoring this, since I wasn't doing a \csname.
+
+./CSC510_A4.tex:100: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.100       \State
+                  {C[6]=True}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+./CSC510_A4.tex:100: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.100       \State
+                  {C[6]=True}
+I'm ignoring this, since I wasn't doing a \csname.
+
+./CSC510_A4.tex:101: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.101       \State
+                  {C[7]=False}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+./CSC510_A4.tex:101: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.101       \State
+                  {C[7]=False}
+I'm ignoring this, since I wasn't doing a \csname.
+
+./CSC510_A4.tex:102: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.102       \State
+                  {C[8]=True}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+./CSC510_A4.tex:102: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.102       \State
+                  {C[8]=True}
+I'm ignoring this, since I wasn't doing a \csname.
+
+./CSC510_A4.tex:103: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.103       \State
+                  {C[9]=True}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+./CSC510_A4.tex:103: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.103       \State
+                  {C[9]=True}
+I'm ignoring this, since I wasn't doing a \csname.
+
+./CSC510_A4.tex:104: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.104       \For
+                (i=10,...,n)
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+./CSC510_A4.tex:104: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.104       \For
+                (i=10,...,n)
+I'm ignoring this, since I wasn't doing a \csname.
+
+./CSC510_A4.tex:108: Missing number, treated as zero.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.108     \end{algorithmic}
+                           
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./CSC510_A4.tex:108: Missing = inserted for \ifnum.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.108     \end{algorithmic}
+                           
+I was expecting to see `<', `=', or `>'. Didn't.
+
+./CSC510_A4.tex:108: Missing number, treated as zero.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.108     \end{algorithmic}
+                           
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./CSC510_A4.tex:115: Illegal parameter number in definition of \kvtcb@title.
+<to be read again> 
+                   2
+l.115 }
+       
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./CSC510_A4.tex:115: You can't use `macro parameter character #' in horizontal 
+mode.
+\kvtcb@title ->Question ##
+                          2
+l.115 }
+       
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--93
+Underfull \hbox (badness 10000) in paragraph at lines 69--115
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--115
 
  []
 
 [1
 
 {c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-./CSC510_A3.tex:98: Missing \endcsname inserted.
+./CSC510_A4.tex:165: Illegal parameter number in definition of \kvtcb@title.
 <to be read again> 
-                   \ALG@currentblock@0 
-l.98       \State
-                 {Initialize S[1,...,n]}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
+                   3
+l.165 }
+       
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
 
-./CSC510_A3.tex:98: Extra \endcsname.
-\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
-                                                  \relax \def \ALG@thisblock...
-l.98       \State
-                 {Initialize S[1,...,n]}
-I'm ignoring this, since I wasn't doing a \csname.
-
-./CSC510_A3.tex:99: Missing \endcsname inserted.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.99       \State
-                 {S[1]=1}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-./CSC510_A3.tex:99: Extra \endcsname.
-\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
-                                                  \relax \def \ALG@thisblock...
-l.99       \State
-                 {S[1]=1}
-I'm ignoring this, since I wasn't doing a \csname.
-
-./CSC510_A3.tex:100: Missing \endcsname inserted.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.100       \State
-                  {S[2]=2}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-./CSC510_A3.tex:100: Extra \endcsname.
-\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
-                                                  \relax \def \ALG@thisblock...
-l.100       \State
-                  {S[2]=2}
-I'm ignoring this, since I wasn't doing a \csname.
-
-./CSC510_A3.tex:101: Missing \endcsname inserted.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.101       \State
-                  {S[3]=4}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-./CSC510_A3.tex:101: Extra \endcsname.
-\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
-                                                  \relax \def \ALG@thisblock...
-l.101       \State
-                  {S[3]=4}
-I'm ignoring this, since I wasn't doing a \csname.
-
-./CSC510_A3.tex:102: Missing \endcsname inserted.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.102       \For
-                { i=4,..,n}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-./CSC510_A3.tex:102: Extra \endcsname.
-\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
-                                                  \relax \def \ALG@thisblock...
-l.102       \For
-                { i=4,..,n}
-I'm ignoring this, since I wasn't doing a \csname.
-
-./CSC510_A3.tex:107: Missing number, treated as zero.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.107     \end{algorithmic}
-                           
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./CSC510_A3.tex:107: Missing = inserted for \ifnum.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.107     \end{algorithmic}
-                           
-I was expecting to see `<', `=', or `>'. Didn't.
-
-./CSC510_A3.tex:107: Missing number, treated as zero.
-<to be read again> 
-                   \ALG@currentblock@0 
-l.107     \end{algorithmic}
-                           
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
+./CSC510_A4.tex:165: You can't use `macro parameter character #' in horizontal 
+mode.
+\kvtcb@title ->Question ##
+                          3
+l.165 }
+       
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 115--115
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 115--115
+Underfull \hbox (badness 10000) in paragraph at lines 129--165
 
  []
 
 [2]
 
-./CSC510_A3.tex:134: Package algorithmicx Error: Some blocks are not closed!!!.
+./CSC510_A4.tex:187: Package algorithmicx Error: Some blocks are not closed!!!.
 
 
 See the algorithmicx package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.134     \end{algorithmic}
+l.187     \end{algorithmic}
                            
 (That was another \errmessage.)
-
-
-./CSC510_A3.tex:135: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.135   \end{algorithm}\\\\
-                           
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./CSC510_A3.tex:136: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.136 \textbf
-             {Give a verbal justification for why your recurrence works.}\\
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
-
- []
 
 [3]
-./CSC510_A3.tex:147: Missing \endcsname inserted.
+./CSC510_A4.tex:195: Missing \endcsname inserted.
 <to be read again> 
                    \ALG@currentblock@0 
-l.147       \If
-                {W[1][1]=TRUE}%case of starting on obstacle
+l.195     \State
+                 {Init S[0,..,m][0,...,n]}
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
-./CSC510_A3.tex:147: Extra \endcsname.
+./CSC510_A4.tex:195: Extra \endcsname.
 \ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
                                                   \relax \def \ALG@thisblock...
-l.147       \If
-                {W[1][1]=TRUE}%case of starting on obstacle
+l.195     \State
+                 {Init S[0,..,m][0,...,n]}
 I'm ignoring this, since I wasn't doing a \csname.
 
-./CSC510_A3.tex:150: Missing \endcsname inserted.
+./CSC510_A4.tex:196: Missing \endcsname inserted.
 <to be read again> 
                    \ALG@currentblock@0 
-l.150       \If
-                {W[i][j]=TRUE }%case of obstacle on goal
+l.196     \For
+               {i=0,...,n}
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
-./CSC510_A3.tex:150: Extra \endcsname.
+./CSC510_A4.tex:196: Extra \endcsname.
 \ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
                                                   \relax \def \ALG@thisblock...
-l.150       \If
-                {W[i][j]=TRUE }%case of obstacle on goal
+l.196     \For
+               {i=0,...,n}
 I'm ignoring this, since I wasn't doing a \csname.
 
-./CSC510_A3.tex:153: Missing \endcsname inserted.
+./CSC510_A4.tex:199: Missing number, treated as zero.
+<to be read again> 
+                   \ALG@b@2@EndIf@0 
+l.199       \EndIf
+                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./CSC510_A4.tex:201: Missing \endcsname inserted.
 <to be read again> 
                    \ALG@currentblock@0 
-l.153       \If
-               {$i<1$ or $j<1$}
+l.201     \For
+               {i=0,...,m}
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
-./CSC510_A3.tex:153: Extra \endcsname.
+./CSC510_A4.tex:201: Extra \endcsname.
 \ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
                                                   \relax \def \ALG@thisblock...
-l.153       \If
-               {$i<1$ or $j<1$}
+l.201     \For
+               {i=0,...,m}
 I'm ignoring this, since I wasn't doing a \csname.
 
-./CSC510_A3.tex:156: Missing \endcsname inserted.
+./CSC510_A4.tex:202: Extra }, or forgotten \endgroup.
+l.202       \State{S}[i][0]=0}
+                              
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./CSC510_A4.tex:203: Missing number, treated as zero.
+<to be read again> 
+                   \ALG@b@2@EndIf@0 
+l.203     \EndIf
+                
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./CSC510_A4.tex:205: Missing \endcsname inserted.
 <to be read again> 
                    \ALG@currentblock@0 
-l.156       \If
-                {i=1 and j=1}% we made it to the start
+l.205     \For
+               {i=1,...,m}
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
-./CSC510_A3.tex:156: Extra \endcsname.
+./CSC510_A4.tex:205: Extra \endcsname.
 \ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
                                                   \relax \def \ALG@thisblock...
-l.156       \If
-                {i=1 and j=1}% we made it to the start
+l.205     \For
+               {i=1,...,m}
 I'm ignoring this, since I wasn't doing a \csname.
 
-
-./CSC510_A3.tex:162: Package algorithmicx Error: Some blocks are not closed!!!.
-
-
-See the algorithmicx package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.162     \end{algorithmic}
+./CSC510_A4.tex:220: Missing number, treated as zero.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.220     \end{algorithmic}
                            
-(That was another \errmessage.)
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./CSC510_A4.tex:220: Missing = inserted for \ifnum.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.220     \end{algorithmic}
+                           
+I was expecting to see `<', `=', or `>'. Didn't.
+
+./CSC510_A4.tex:220: Missing number, treated as zero.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.220     \end{algorithmic}
+                           
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+./CSC510_A4.tex:230: Illegal parameter number in definition of \kvtcb@title.
+<to be read again> 
+                   4
+l.230 }
+       
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+./CSC510_A4.tex:230: You can't use `macro parameter character #' in horizontal 
+mode.
+\kvtcb@title ->Question ##
+                          4
+l.230 }
+       
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--168
+Underfull \hbox (badness 10000) in paragraph at lines 230--230
 
  []
 
-[4] (./CSC510_A3.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--230
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--230
+
+ []
+
+[4]
+./CSC510_A4.tex:245: Too many }'s.
+l.245 }
+       
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+[5] (./CSC510_A4.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 28653 strings out of 478542
- 731986 string characters out of 5854402
- 1215241 words of memory out of 5000000
- 46110 multiletter control sequences out of 15000+600000
- 434151 words of font info for 99 fonts, out of 8000000 for 9000
+ 28672 strings out of 478542
+ 732268 string characters out of 5854402
+ 1219241 words of memory out of 5000000
+ 46123 multiletter control sequences out of 15000+600000
+ 435779 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,6n,103p,733b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,8n,103p,733b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2021/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/rs
-fs/rsfs10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/
-texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2021/texmf
--dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on CSC510_A3.pdf (4 pages, 76126 bytes).
+f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/sy
+mbols/msbm10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><
+c:/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2021/te
+xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on CSC510_A4.pdf (5 pages, 83321 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
- 35 compressed objects within 1 object stream
+ 64 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

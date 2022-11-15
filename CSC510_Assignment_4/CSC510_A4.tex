@@ -1,0 +1,245 @@
+\documentclass[11pt]{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amssymb,latexsym,amsmath,amsthm,graphicx, cite}
+ \author{Chris Camano: ccamano@sfsu.edu}
+ \title{CSC510  Homework 3 }
+ \date
+
+\usepackage{mathptmx}
+\usepackage{pgfplots}
+\usetikzlibrary{positioning}
+\usepackage{multirow}
+\usepackage{float}
+\restylefloat{table}
+\hoffset=0in
+\voffset=-.3in
+\oddsidemargin=0in
+\evensidemargin=0in
+\topmargin=0in
+\textwidth=6.5in
+\textheight=8.8in
+\marginparwidth 0pt
+\marginparsep 10pt
+\headsep 10pt
+
+\theoremstyle{definition}  % Heading is bold, text is roman
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{proposition}{Proposition}
+
+
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\lcm}{\mathrm{lcm}}
+
+
+\usepackage[many]{tcolorbox}
+\usepackage{lipsum}
+\tcbset{breakable}
+
+\newcommand{\bigline}{\\\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\}
+\newcommand{\block}[2]{\begin{tcolorbox}[title={#1}]{#2}\end{tcolorbox}}
+\setlength{\parskip}{0cm}
+%\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
+\bibliographystyle{amsplain}
+
+%\input{../header}
+
+\begin{document}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\block{Question #1}{
+Describe a dynamic programming algorithm for determining whether you can buy exactly $n$ cupcakes using boxes of 4,6 , and 9 cupcakes. Your answer should be boolean-valued function of the following form:4
+\begin{center}
+  $\operatorname{CUPCAKEDP}(n)$ :\\
+  // your code here
+\end{center}
+  What's the runtime of your algorithm?
+}
+Recall the previous recursive cupcake algorithm ;
+\begin{algorithm}
+    \caption{CUPCAKE $(n)$ }
+    \label{alg:algorithm_sum}
+    \begin{algorithmic}[1]
+      \If{n=0}
+
+      \Return {True}
+
+      \EndIf
+      \If{$n<0$}
+
+      \Return {False}
+
+      \Else
+
+        \Return{ CUPCAKE(n-9) or CUPCAKE(n-6) or CUPCAKE(n-4)}
+
+    \end{algorithmic}
+  \end{algorithm}\\\\
+  A dynamic programming version of this algorithm would be:
+  \begin{algorithm}
+    \caption{DPCUPCAKE $(n)$ }
+    \label{alg:algorithm_sum}
+    \begin{algorithmic}[1]
+      \State{Init C=[1,...,max(n,9)]}
+      \State{C[1]=False}
+      \State{C[2]=False}
+      \State{C[3]=False}
+      \State{C[4]=True}
+      \State{C[5]=False}
+      \State{C[6]=True}
+      \State{C[7]=False}
+      \State{C[8]=True}
+      \State{C[9]=True}
+      \For(i=10,...,n)
+      \State{C[i]=C[i-4] or C[i-6] or C[i-9]}
+      \EndFor
+        \Return {C[n]}
+    \end{algorithmic}
+  \end{algorithm}\\\\
+  The runtime of this algorithm is =O(n)
+  \pagebreak
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\block{Question #2}{
+Actually, there's a faster way of doing the previous problem, assuming arithmetic operations can be done in constant time. Give a constant-time algorithm for the above problem, and prove the correctness of your algorithm. (Hint: try coding up your algorithm in the previous part. Do you see a pattern?)
+}
+Allow us to deploy some light number theory here: Given an integer of desired cupcakes we can begin by computing the value modulo 10. If the remainder is either 0,4,6,or 9 then we know that we can form an expression as follows:
+\[
+  k(4+6)+r\quad k \in \Z , r\in {0,4,6,9}
+\]
+Using this method we also get a free solution for when the remainder is 8 since 8=4(2)\\
+Great so we have covered almost half of the possible remainders with this expression: \\
+For values 1,2,3,5,7 we will need to deploy some more customized reasoning. Do there exist linear combinations of our three possible box sizes whose remainder mod 10 is equal to the numbers listed above?: Here is proof of the first occurence that we see the digit listed:
+\begin{align*}
+  &9(1)+6(2)&=21 &\mod 10=1 \\
+  &6(2)&=12 &\mod 10=2 \\
+  &9(1)+4(1)&=13 &\mod 10=3 \\
+  &9(1)+6(1)&=15 &\mod 10=5 \\
+  &9+4(1)&=17&\mod 10=7 \\
+\end{align*}
+Thus we have demonstrated that there exist some linear combination of our box sizes that form the full residue system of $\Z_n$ for certain size conditions.
+In code:
+\begin{algorithm}
+    \caption{CUPCAKE $(n)$ }
+    \label{alg:algorithm_sum}
+    \begin{algorithmic}[1]
+      \If{n$\mod$ 10=0 or 4 or 8 or 6 or 9 }
+
+      \Return {True}
+      \ElsIf{n$\mod$10=1 and n$>$20}
+
+        \Return {True}
+
+      \ElsIf{n$\geq$10}
+
+        \Return {True}
+
+      \Else
+
+        \Return {False}
+
+      \EndIf
+    \end{algorithmic}
+  \end{algorithm}\\\\
+  \pagebreak
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \pagebreak
+\block{Question #3}{
+The SFSU Robotics Club used your algorithm from the previous homework and found that it was too slow for large mazes. They've asked you to come up with a more efficient algorithm for the same problem, i.e., counting the number of solutions for a robot to traverse a maze using only down and right steps:\\\\
+Describe a dynamic programming algorithm for finding the number of ways for the robot to navigate from the top-left cell (coordinate $(1,1)$ ) to the bottom-right cell (coordinate $(m, n)$, where $1 \leq i \leq m$ and $1 \leq j \leq n$ ) of the maze. Your answer should be an integer-valued function of the following form:
+\begin{center}
+  $\operatorname{MaZEROBOTDP}(W[1, \ldots, m][1, \ldots, n])$ :\\
+  / / your code here
+\end{center}
+What's the runtime of your algorithm? (Hint: this should resemble LCS)
+}
+
+Previous algorithm: \\
+\begin{algorithm}
+    \caption{MAZEROBOT $(W[1, \ldots, m][1, \ldots, n], i, j)$  }
+    \label{alg:algorithm_sum}
+    \begin{algorithmic}[1]
+      \If {W[1][1]=TRUE}%case of starting on obstacle
+      \State{return 0}
+      \EndIf
+      \If {W[i][j]=TRUE }%case of obstacle on goal
+      \State{return 0}
+      \EndIf
+      \If{$i<1$ or $j<1$}
+      \State{return 0}
+      \EndIf =1}% we made it to the start
+      \State{return 1}
+      \Else{
+
+        \Return {MAZEROBOT(W,i-1,j)+MAZEROBOT(W,i,j-1)}
+}
+    \end{algorithmic}
+  \end{algorithm}
+  \pagebreak
+
+\begin{algorithm}
+    \caption{MAZEROBOTDP $(W[1, \ldots, m][1, \ldots, n], i, j)$  }
+    \label{alg:algorithm_sum}
+    \begin{algorithmic}[1]
+    \State {Init S[0,..,m][0,...,n]}
+    \For {i=0,...,n}
+
+        \State{S[0][i]=0}
+      \EndIf
+    \EndFor
+    \For {i=0,...,m}
+      \State{S}[i][0]=0}
+    \EndIf
+    \EndFor
+    \For {i=1,...,m}
+    \For {j=1,...,n}
+    \If {W[i][j]=0{}
+
+        \State{S[i][j]=S[i][j-1]+S[i-1][j]}
+    \Else
+
+    \State{S[i][j]=0}
+    \EndIf
+
+  \EndFor
+    \EndFor
+
+    \Return {S[m][n]}
+}
+    \end{algorithmic}
+  \end{algorithm}
+  Above is the improved algorithm :\\
+  Small bug with =0 being printed at the end of my algorithms please ignore. \\\\
+  The runtime of this algorithm like LCS is O(mn)
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\block{Question #4}{
+Run the dynamic programming algorithm, including reconstruction, to find a longest common subsequence of the strings STREET and TESTER. Your final answer should be a string, not just the length.
+\\\\
+}
+I have implemented the algorithm given by the pseudocode in the lecture and determined that the longest common subsequence is STE.An equivilant common subsequence is STR.
+
+Weirdly enough depending on the order of the arguments in my function I got different answers: passing in( STREET,TESTER) Returned TE passing (TESTER,STREET) returned STE.\\
+This pattern also continued for the BAUHAUS ABACUS example and was able to be replicated with a different recursive algorithm I found online that also computes the longest common subsequence.
+Here is the matrix I generated during DP for TESTER STREET
+$$\begin{bmatrix}
+0&0&0&0&0&0&0\\
+0&0&1&1&1&1&1\\
+0&0&1&1&2&2&2\\
+0&1&1&1&2&2&2\\
+0&1&2&2&2&2&3\\
+0&1&2&2&3&3&3\\
+0&1&2&3&3&3&3\\
+\end{bmatrix}$$
+}
+\end{document}
